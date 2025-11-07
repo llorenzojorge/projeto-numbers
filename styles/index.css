@@ -59,7 +59,3 @@ body {
     align-items: center;
     background-color: var(--background-primary);
 }
-
-main {
-    margin: 2.8rem 6.8rem;
-}
