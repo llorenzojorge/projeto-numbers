@@ -1,0 +1,37 @@
+body > img {
+  margin-top: 2.75rem;
+}
+
+header {
+  max-width: 20rem;
+  margin-top: 2.8rem;
+  text-transform: uppercase;
+  
+  & p {
+    font: var(--overline);
+    color: var(--content-primary);
+  }
+  
+  & h1 {
+    margin-top: .5rem;
+    font: var(--display-md);
+    color: var(--content-primary);
+  }
+}
+
+@media (width >= 80em) {
+  body > img {
+    margin-top: 4.75rem;
+    align-self: start;
+    padding-left: 7.5rem;
+  }
+
+  header {
+    max-width: 31.75rem;
+    margin-top: 5.5rem;
+    & h1 {
+      margin-top: .75rem;
+      font: var(--display-lg);
+    }
+  }
+}
