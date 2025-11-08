@@ -5,15 +5,24 @@ body > img {
 header {
   max-width: 20rem;
   margin-top: 2.8rem;
+  margin-inline: 2.25rem;
   text-transform: uppercase;
   
   & p {
+    background: linear-gradient(90deg, var(--gradient-border));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    color: line;
+
     font: var(--overline);
     color: var(--content-primary);
   }
   
   & h1 {
     margin-top: .5rem;
+    letter-spacing: -0.04em;
     font: var(--display-md);
     color: var(--content-primary);
   }
