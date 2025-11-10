@@ -1,0 +1,26 @@
+#fields {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+
+  & #input-group {
+    display: flex;
+    justify-content: start;
+    gap: .75rem;
+
+    font: var(--label-md);
+    text-transform: uppercase;
+
+    & .input-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: .5rem;
+
+      & input {
+        width: 100%;
+      }
+    }
+  }
+}
