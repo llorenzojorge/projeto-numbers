@@ -41,4 +41,38 @@
       }
     }
   }
+
+  & .toggle {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+
+    & input {
+      appearance: none;
+
+      width: 1.8rem;
+      height: 1.25rem;
+      
+      border-radius: 1rem;
+      background: linear-gradient(72deg, var(--gradient-content));
+
+      cursor: pointer;
+      position: relative;
+      &::after {
+        content: "";
+        position: absolute;
+        /* Descobrir o calculo para o top 50% */
+        left: 2px;
+
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background-color: white;
+      }
+
+      &:checked::after {
+        /* Mover para a direita */
+      }
+    }
+  }
 }
