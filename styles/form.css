@@ -36,10 +36,15 @@ form {
     color: var(--content-primary);
     background-color: var(--background-tertiary);
     padding-block: 1rem;
-    border: none;
+    border: 1px solid transparent;
     border-radius: .5rem;
     
     cursor: pointer;
+    background: 
+      linear-gradient(var(--background-tertiary)) padding-box,
+      linear-gradient(90deg, var(--gradient-background)) border-box;
+    background-size: 200% 200%;
+    animation: borderMove 3s linear infinite;
   }
 }
 

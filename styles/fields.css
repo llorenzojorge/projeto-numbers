@@ -26,13 +26,17 @@
         text-align: center;
         color: var(--content-primary);
 
-        background-color: var(--background-secondary);
-        border: 1px solid transparent;
         border-radius: .5rem;
+        outline: none;
+
+        border: 1px solid transparent;
+        background: 
+          linear-gradient(var(--background-secondary)) padding-box;
 
         &:hover, &:focus {
-          outline: none;
-          /* Criar borda colorida */
+          background: 
+          linear-gradient(var(--background-secondary)) padding-box,
+          linear-gradient(90deg, var(--gradient-background)) border-box;
         }
       }
     }
