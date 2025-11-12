@@ -1,0 +1,23 @@
+#questions {
+  display: grid;
+  gap: 2.25rem;
+
+  & h3 {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+
+    font: var(--pg-md);
+    color: var(--content-brand);
+
+    & img {
+      width: 1.25rem;
+      height: 1.25rem;
+    }
+  }
+
+  & p {
+    /* 1.25rem da img + 0.5rem do gap*/
+    margin-left: 1.75rem;
+  }
+}
