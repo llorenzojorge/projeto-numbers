@@ -1,6 +1,6 @@
 @import url(header.css);
-@import url(form.css);
-@import url(fields.css);
+@import url(main.css);
+@import url(questions.css);
 
 * {
     margin: 0;
