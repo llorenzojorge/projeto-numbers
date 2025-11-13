@@ -1,11 +1,29 @@
 .container {
   max-width: 20rem;
   margin-top: 2.8rem;
+
+  display: grid;
 }
 
 @media (width >= 80em) {
   .container {
     max-width: 68.6rem;
-    margin-top: 5.5rem;    
+    margin-top: 5.5rem;
+
+    grid-template-columns: 31.75rem 30.1rem;
+    grid-template-areas: 
+    "header main"
+    "questions main";
+    column-gap: 6.75rem;
+    align-items: start;
+
+    & header { grid-area: header; }
+    & main { grid-area: main;}
+
+    & #questions {
+      grid-area: questions;
+      max-width: 24.1rem;
+      text-align: start;
+    }
   }
 }

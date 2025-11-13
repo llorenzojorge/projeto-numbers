@@ -132,7 +132,6 @@ main {
 
 @media (width >=80em) {
   main {
-    /* Não é fixo pq tem 2 colunas, verificar melhor */
     max-width: 30.1rem;
   }
 
