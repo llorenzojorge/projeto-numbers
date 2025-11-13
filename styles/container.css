@@ -14,11 +14,20 @@
     grid-template-areas: 
     "header main"
     "questions main";
+
     column-gap: 6.75rem;
     align-items: start;
 
-    & header { grid-area: header; }
-    & main { grid-area: main;}
+    & header {
+      grid-area: header;
+      margin-bottom: 2.3rem;
+    }
+
+    & main {
+      grid-area: main;
+      padding-block: 0;
+      align-self: center;
+    }
 
     & #questions {
       grid-area: questions;
