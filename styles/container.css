@@ -1,0 +1,11 @@
+.container {
+  max-width: 20rem;
+  margin-top: 2.8rem;
+}
+
+@media (width >= 80em) {
+  .container {
+    max-width: 68.6rem;
+    margin-top: 5.5rem;    
+  }
+}
