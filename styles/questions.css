@@ -1,6 +1,7 @@
 #questions {
   display: grid;
   gap: 2.25rem;
+  margin-bottom: 3rem;
 
   & h3 {
     display: flex;
@@ -19,5 +20,11 @@
   & p {
     /* 1.25rem da img + 0.5rem do gap*/
     margin-left: 1.75rem;
+  }
+}
+
+@media (width >=80em) {
+  #questions {
+    margin-bottom: 0;
   }
 }

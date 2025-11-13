@@ -63,14 +63,19 @@ body {
   background-color: var(--background-primary);
 }
 
+#logo {
+  width: 20rem;
+  text-align: center;
+} 
+
 @media (width >= 80em) {
   body {
     padding-top: 4.75rem;
   }
 
-  body > img {
-    align-self: start;
-    padding-left: 7.5rem;
+  body > #logo {
+    width: 69.5rem;
+    text-align: start;
   }
 }
 
