@@ -24,7 +24,7 @@
         <main>
             <section id="content-form">
                 <form>
-                    <div id="header-form">
+                    <div class="header-form">
                         <h2>Quero Sortear:</h2>
                         <p>Defina o intervalo e a quantidade de números, clique em "Sortear" e veja os resultados na tela. É rápido e fácil!</p>
                     </div>
@@ -56,6 +56,30 @@
                     <button type="submit">
                         Sortear
                         <img src="assets/arrow.svg" alt="Seta para direita">
+                    </button>
+                </form>
+            </section>
+
+            <section id="result" class="hidden">
+                <form>
+                    <div class="header-form">
+                        <h2>Resultado do sorteio</h2>
+                        <p>1º resultado</p>
+                    </div>
+
+                    <div id="sorteio">
+                        <div class="number">
+                            <output>23</output>
+                        </div>
+
+                        <div class="number">
+                            <output>12</output>
+                        </div>
+                    </div>
+
+                    <button type="submit">
+                        Sortear Novamente
+                        <img src="assets/replay.svg" alt="Seta para direita">
                     </button>
                 </form>
             </section>
