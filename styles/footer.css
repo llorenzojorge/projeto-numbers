@@ -1,0 +1,19 @@
+footer {
+    height: 100%;
+    padding-bottom: 2rem;
+
+    & ul {
+        display: flex;
+        gap: .5rem;
+        list-style: none;
+
+        & a { text-decoration: none; }
+    }
+}
+
+@media (width >=80em) {
+    footer {
+        margin-top: 6rem;
+        align-content: end;
+    }
+}
