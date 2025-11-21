@@ -29,4 +29,17 @@ form.onsubmit = (event) => {
         max: max.value,
         toggle: toggle.checked,
     }
+
+    formClear()
+}
+
+// Limpa os dados do formulário.
+function formClear() {
+    // Limpa os input's
+    numbers.value = ""
+    min.value = ""
+    max.value = ""
+    toggle.checked = false
+
+    numbers.focus()
 }
