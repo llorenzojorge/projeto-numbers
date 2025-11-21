@@ -1,8 +1,8 @@
 // Seleciona os elementos do formulário.
 const form = document.querySelector("form")
-const numbers = document.getElementById("numbers")
-const min = document.getElementById("min")
-const max = document.getElementById("max")
+const quantityInput = document.getElementById("numbers")
+const minInput = document.getElementById("min")
+const maxInput = document.getElementById("max")
 const toggle = document.getElementById("toggle")
 
 // Função reutilizável para remover caracteres dos inputs. 
@@ -14,7 +14,7 @@ function removeCharacter(input) {
 }
 
 // Aplica função removeCharacter() para os 3 inputs principais.
-[numbers, min, max].forEach(input => {
+[quantityInput, minInput, maxInput].forEach(input => {
     input.addEventListener("input", () => removeCharacter(input))
 })
 
@@ -24,9 +24,9 @@ form.onsubmit = (event) => {
 
     // Cria objeto com os valores dos input's.
     const newDraw = {
-        numbers: numbers.value,
-        min: min.value,
-        max: max.value,
+        quantityInput: Number(quantityInput.value),
+        minInput: Number(minInput.value),
+        maxInput: Number(maxInput.value),
         toggle: toggle.checked,
     }
 
@@ -36,10 +36,10 @@ form.onsubmit = (event) => {
 // Limpa os dados do formulário.
 function formClear() {
     // Limpa os input's
-    numbers.value = ""
-    min.value = ""
-    max.value = ""
+    quantityInput.value = ""
+    minInput.value = ""
+    maxInput.value = ""
     toggle.checked = false
 
-    numbers.focus()
+    quantityInput.focus()
 }
