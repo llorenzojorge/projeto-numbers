@@ -30,7 +30,37 @@ form.onsubmit = (event) => {
         toggle: toggle.checked,
     }
 
+    // Chama a função que cria o sorteio.
+    draw(newDraw)
     formClear()
+}
+
+// Sorteador de números.
+function draw(newDraw) {
+    // Cria uma lista para armazenar os números já sorteados.
+    let drawNumbers = []
+    let minValue = newDraw.minInput
+    let maxValue = newDraw.maxInput
+
+    // Cria um looping para gerar a quantidade de números escolhida pelo usuário.
+    for(let i = 0; i < newDraw.quantityInput; i++) {
+        let drawNumber = randomBetween(minValue, maxValue)
+        
+        // Verifica se o usuário não quer que os números se repitam, em seguida verifica se o número sorteado já existe dentro da lista.
+        if (newDraw.toggle === true) {
+            while (drawNumbers.includes(drawNumber)) {
+                drawNumber = randomBetween(minValue, maxValue)
+            }
+        }
+
+        // Adiciona o número da lista.
+        drawNumbers.push(drawNumber)
+    }
+}
+
+// Gera um número aleatório entre min e max.
+function randomBetween(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 // Limpa os dados do formulário.
