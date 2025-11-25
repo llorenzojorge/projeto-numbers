@@ -1,9 +1,13 @@
-// Seleciona os elementos do formulário.
-const form = document.querySelector("form")
+// Seleciona os elementos do formulário de sorteio.
+const formDraw = document.querySelector("form")
 const quantityInput = document.getElementById("numbers")
 const minInput = document.getElementById("min")
 const maxInput = document.getElementById("max")
 const toggle = document.getElementById("toggle")
+
+// Seleciona as seções de sorteio + resultado
+const contentForm = document.getElementById("content-form")
+const result = document.getElementById("result")
 
 // Função reutilizável para remover caracteres dos inputs. 
 function removeCharacter(input) {
@@ -19,7 +23,7 @@ function removeCharacter(input) {
 })
 
 // Captura o evento de submit do form para obter os valores.
-form.onsubmit = (event) => {
+formDraw.onsubmit = (event) => {
     event.preventDefault()
 
     // Cria objeto com os valores dos input's.
