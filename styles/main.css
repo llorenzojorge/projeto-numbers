@@ -38,7 +38,6 @@ main {
   /* Configurações globais para as duas section's */
   & form {
     display: grid;
-    gap: 2.5rem;
 
     & .header-form {
       & h2 {
@@ -56,7 +55,8 @@ main {
     & #fields {
       display: flex;
       flex-direction: column;
-      gap: 1.25rem;
+      margin-top: 2.5rem;
+      gap: 3rem;
 
       & #input-group {
         display: flex;
@@ -136,12 +136,30 @@ main {
           }
         }
       }
+
+      & div:has(#messageError) {
+        position: relative;
+
+        & #messageError {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: .2rem;
+
+          position: absolute;
+          bottom: calc(1.25rem + .5rem);
+
+          font: 600 .75rem/120% var(--font-sora);
+          color: #C93847;
+        }
+      }
     }
 
     & button[type="submit"] {
       display: flex;
       align-items: center;
       justify-content: center;
+      margin-top: 1rem;
       gap: .5rem;
 
       font: var(--label-md);
@@ -201,6 +219,10 @@ main {
       & p {
         font: var(--pg-lg);
       }
+    }
+
+    & #fields {
+      gap: 2.5 rem !important;
     }
   }
 }
