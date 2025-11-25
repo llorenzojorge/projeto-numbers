@@ -137,10 +137,10 @@ main {
         }
       }
 
-      & div:has(#messageError) {
+      & div:has(#error) {
         position: relative;
 
-        & #messageError {
+        & #error {
           display: flex;
           align-items: center;
           justify-content: center;
