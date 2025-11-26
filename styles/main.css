@@ -15,10 +15,14 @@ main {
 
     & #sorteio {
       display: flex;
+      flex-wrap: wrap;
       align-items: center;
       justify-content: center;
       gap: .25rem;
 
+      /* Tamanho dobrado de cada .number (4.5rem *2) */
+      max-height: 9rem;
+      overflow-y: scroll;
       & .number {
         width: 5.25rem;
 
