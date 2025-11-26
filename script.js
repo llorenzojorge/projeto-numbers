@@ -21,6 +21,31 @@ function removeCharacter(input) {
     input.value = value ? parseInt(value, 10) : ""
 }
 
+// Aplica função removeCharacter() para os 3 inputs principais.
+[quantityInput, minInput, maxInput].forEach(input => {
+    input.addEventListener("input", () => removeCharacter(input))
+})
+
+// Captura o evento de submit do form para obter os valores.
+formDraw.onsubmit = (event) => {
+    event.preventDefault()
+
+    // Cria objeto com os valores dos input's.
+    const newDraw = {
+        quantityInput: Number(quantityInput.value),
+        minInput: Number(minInput.value),
+        maxInput: Number(maxInput.value),
+        toggle: toggle.checked,
+    }
+
+    // Chama a função que valida os valores.
+    if (validationForm(newDraw)) return
+
+    // Chama a função que cria o sorteio.
+    draw(newDraw)
+    formClear()
+}
+
 // Função para validar valores aceitáveis
 function validationForm(newDraw) {
     // Verifica se o valor mínimo é maior ou igual ao valor máximo.
@@ -50,31 +75,6 @@ function validationForm(newDraw) {
     return false
 }
 
-// Aplica função removeCharacter() para os 3 inputs principais.
-[quantityInput, minInput, maxInput].forEach(input => {
-    input.addEventListener("input", () => removeCharacter(input))
-})
-
-// Captura o evento de submit do form para obter os valores.
-formDraw.onsubmit = (event) => {
-    event.preventDefault()
-
-    // Cria objeto com os valores dos input's.
-    const newDraw = {
-        quantityInput: Number(quantityInput.value),
-        minInput: Number(minInput.value),
-        maxInput: Number(maxInput.value),
-        toggle: toggle.checked,
-    }
-
-    // Chama a função que valida os valores.
-    if (validationForm(newDraw)) return
-
-    // Chama a função que cria o sorteio.
-    draw(newDraw)
-    formClear()
-}
-
 // Sorteador de números.
 function draw(newDraw) {
     // Cria uma lista para armazenar os números já sorteados.
@@ -83,9 +83,9 @@ function draw(newDraw) {
     let maxValue = newDraw.maxInput
 
     // Cria um looping para gerar a quantidade de números escolhida pelo usuário.
-    for(let i = 0; i < newDraw.quantityInput; i++) {
+    for (let i = 0; i < newDraw.quantityInput; i++) {
         let drawNumber = randomBetween(minValue, maxValue)
-        
+
         // Verifica se o usuário não quer que os números se repitam, em seguida verifica se o número sorteado já existe dentro da lista.
         if (newDraw.toggle === true) {
             while (drawNumbers.includes(drawNumber)) {
@@ -100,7 +100,7 @@ function draw(newDraw) {
 
 // Gera um número aleatório entre min e max.
 function randomBetween(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
+    return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 // Limpa os dados do formulário.
