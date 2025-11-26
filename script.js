@@ -26,23 +26,28 @@ function validationForm(newDraw) {
     // Verifica se o valor mínimo é maior ou igual ao valor máximo.
     if (newDraw.minInput >= newDraw.maxInput) {
         error.classList.remove("hidden")
-        error.classList.add("show-flex")
-        messageError.textContent("O valor mínimo não pode ser maior ou igual que o valor máximo.")
-    }
+        error.classList.add("show")
+        messageError.textContent = "O valor mínimo não pode ser menor ou igual que o valor máximo!"
+        minInput.focus()
 
+        return true
+    }
     // Verifica se a quantidade de números sorteados é possível de ser gerada.
-    else if (newDraw.toggle === true) {
+    if (newDraw.toggle === true) {
         const range = parseInt(newDraw.maxInput - newDraw.minInput + 1)
 
         if (newDraw.quantityInput > range) {
             error.classList.remove("hidden")
-            error.classList.add("show-flex")
-            messageError.textContent("Não é possível sortear essa quantidade sem repetir números.")
+            error.classList.add("show")
+            messageError.textContent = "Não é possível sortear essa quantidade sem repetir números!"
+            quantityInput.focus()
+
+            return true
         }
     }
 
-    // Se não existir erro, retornará null.
-    return null
+    // Se não existir erro, retornará false.
+    return false
 }
 
 // Aplica função removeCharacter() para os 3 inputs principais.
@@ -63,13 +68,7 @@ formDraw.onsubmit = (event) => {
     }
 
     // Chama a função que valida os valores.
-    // validationForm(newDraw)
-    if (validationForm(newDraw) === null) {
-        alert("deu certo")
-    } else {
-        alert("Informe os números novamente.")
-        formClear()
-    }
+    if (validationForm(newDraw)) return
 
     // Chama a função que cria o sorteio.
     draw(newDraw)
@@ -113,7 +112,7 @@ function formClear() {
     toggle.checked = false
 
     error.classList.add("hidden")
-    error.classList.remove("show-flex")
+    error.classList.remove("show")
 
     quantityInput.focus()
 }
