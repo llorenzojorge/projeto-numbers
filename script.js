@@ -1,15 +1,19 @@
 // Seleciona os elementos do formulário de sorteio.
-const formDraw = document.querySelector("form")
+const formDraw = document.getElementById("formDraw")
 const quantityInput = document.getElementById("numbers")
 const minInput = document.getElementById("min")
 const maxInput = document.getElementById("max")
 const toggle = document.getElementById("toggle")
 
-// Seleciona as seções de sorteio + resultado
+// Seleciona o formulário de resultado.
+const formResult = document.getElementById("formResult")
+const resultNumbers = document.getElementById("sorteio")
+
+// Seleciona as seções de sorteio + resultado.
 const contentForm = document.getElementById("content-form")
 const result = document.getElementById("result")
 
-// Seleciona mensagem de erro/aviso
+// Seleciona mensagem de erro/aviso.
 const error = document.getElementById("error")
 const messageError = document.getElementById("messageError")
 
@@ -46,7 +50,22 @@ formDraw.onsubmit = (event) => {
     formClear()
 }
 
-// Função para validar valores aceitáveis
+// Captura o evento de "Sortear Novamente".
+formResult.onsubmit = (event) => {
+    event.preventDefault()
+
+    // Esconde a seção de resultado
+    result.classList.remove("show")
+    result.classList.add("hidden")
+
+    // Visualiza a seção de sorteio
+    contentForm.classList.remove("hidden")
+    contentForm.classList.add("show")
+
+    formClear()
+}
+
+// Função para validar valores aceitáveis.
 function validationForm(newDraw) {
     // Verifica se o valor mínimo é maior ou igual ao valor máximo.
     if (newDraw.minInput >= newDraw.maxInput) {
@@ -96,6 +115,41 @@ function draw(newDraw) {
         // Adiciona o número da lista.
         drawNumbers.push(drawNumber)
     }
+
+    // Mostra o resultado na tela
+    resultDraw(drawNumbers)
+}
+
+// Mostra o resultado na tela.
+function resultDraw(drawNumbers) {
+    // Reseta os números sorteados toda vez que o resultDraw é chamado
+    resultNumbers.innerHTML = ""
+
+    // Esconde a seção de sorteio.
+    contentForm.classList.remove("show")
+    contentForm.classList.add("hidden")
+
+    // Visualiza a seção de resultado.
+    result.classList.remove("hidden")
+    result.classList.add("show")
+
+    // Cria os elementos de acordo com a quantidade de números sorteados.
+    for(let i = 0; i < drawNumbers.length; i++) {
+        // Cria a div.number que armazerá um output (1 número sorteado).
+        const divNumber = document.createElement("div")
+        divNumber.classList.add("number")
+    
+        // Cria o elemento output.
+        const outputDraw = document.createElement("output")
+        outputDraw.textContent = drawNumbers[i]
+
+        // Adiciona o output dentro da div.
+        divNumber.append(outputDraw)
+
+        // Adiciona as informações na div#sorteio.
+        resultNumbers.append(divNumber)
+    }
+
 }
 
 // Gera um número aleatório entre min e max.

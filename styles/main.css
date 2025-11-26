@@ -23,6 +23,13 @@ main {
       /* Tamanho dobrado de cada .number (4.5rem *2) */
       max-height: 9rem;
       overflow-y: scroll;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
       & .number {
         width: 5.25rem;
 
