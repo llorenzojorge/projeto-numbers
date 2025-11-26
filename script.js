@@ -9,12 +9,40 @@ const toggle = document.getElementById("toggle")
 const contentForm = document.getElementById("content-form")
 const result = document.getElementById("result")
 
+// Seleciona mensagem de erro/aviso
+const error = document.getElementById("error")
+const messageError = document.getElementById("messageError")
+
 // Função reutilizável para remover caracteres dos inputs. 
 function removeCharacter(input) {
     // Substitui caracteres não númericos por uma string vazia.
     let value = input.value.replace(/\D/g, "")
     // Garante que não retorne NaN quando o input estiver vazio.
     input.value = value ? parseInt(value, 10) : ""
+}
+
+// Função para validar valores aceitáveis
+function validationForm(newDraw) {
+    // Verifica se o valor mínimo é maior ou igual ao valor máximo.
+    if (newDraw.minInput >= newDraw.maxInput) {
+        error.classList.remove("hidden")
+        error.classList.add("show-flex")
+        messageError.textContent("O valor mínimo não pode ser maior ou igual que o valor máximo.")
+    }
+
+    // Verifica se a quantidade de números sorteados é possível de ser gerada.
+    else if (newDraw.toggle === true) {
+        const range = parseInt(newDraw.maxInput - newDraw.minInput + 1)
+
+        if (newDraw.quantityInput > range) {
+            error.classList.remove("hidden")
+            error.classList.add("show-flex")
+            messageError.textContent("Não é possível sortear essa quantidade sem repetir números.")
+        }
+    }
+
+    // Se não existir erro, retornará null.
+    return null
 }
 
 // Aplica função removeCharacter() para os 3 inputs principais.
@@ -32,6 +60,15 @@ formDraw.onsubmit = (event) => {
         minInput: Number(minInput.value),
         maxInput: Number(maxInput.value),
         toggle: toggle.checked,
+    }
+
+    // Chama a função que valida os valores.
+    // validationForm(newDraw)
+    if (validationForm(newDraw) === null) {
+        alert("deu certo")
+    } else {
+        alert("Informe os números novamente.")
+        formClear()
     }
 
     // Chama a função que cria o sorteio.
@@ -74,6 +111,9 @@ function formClear() {
     minInput.value = ""
     maxInput.value = ""
     toggle.checked = false
+
+    error.classList.add("hidden")
+    error.classList.remove("show-flex")
 
     quantityInput.focus()
 }
