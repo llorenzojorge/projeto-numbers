@@ -61,6 +61,22 @@ body {
   font: var(--pg-sm);
   color: var(--content-secondary);
   background-color: var(--background-primary);
+
+  position: relative;
+  z-index: 0;
+}
+
+body::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: 
+    linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.9) 22.66%,
+      rgba(0, 0, 0, 0.54) 100%),
+    url(../assets/background.svg);
 }
 
 #logo {
