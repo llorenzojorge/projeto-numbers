@@ -36,6 +36,8 @@ main {
         text-align: center;
         /* background-color: var(--content-brand); */
         border-radius: 1.75rem;
+        animation: reveal-number 0.6s ease-out forwards;
+        opacity: 0;
 
         & output {
           font: 700 3rem/150% var(--font-roboto-mono);
@@ -235,5 +237,20 @@ main {
     & #fields {
       gap: 2.5 rem !important;
     }
+  }
+}
+
+@keyframes reveal-number {
+  0% {
+    opacity: 0;
+    transform: scale(0.3) rotate(15deg);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
   }
 }

@@ -139,6 +139,9 @@ function resultDraw(drawNumbers) {
         const divNumber = document.createElement("div")
         divNumber.classList.add("number")
     
+        // Delay individual em cada número sorteado.
+        divNumber.style.animationDelay = `${i * 0.45}s`
+        
         // Cria o elemento output.
         const outputDraw = document.createElement("output")
         outputDraw.textContent = drawNumbers[i]
