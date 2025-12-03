@@ -8,6 +8,8 @@ const toggle = document.getElementById("toggle")
 // Seleciona o formulário de resultado.
 const formResult = document.getElementById("formResult")
 const resultNumbers = document.getElementById("sorteio")
+const quantityDraw = document.getElementById("quantityDraw")
+// let totalDraws = 1
 
 // Seleciona as seções de sorteio + resultado.
 const contentForm = document.getElementById("content-form")
@@ -47,6 +49,7 @@ formDraw.onsubmit = (event) => {
 
     // Chama a função que cria o sorteio.
     draw(newDraw)
+    updateQuantityDraw()
     formClear()
 }
 
@@ -158,6 +161,13 @@ function resultDraw(drawNumbers) {
 // Gera um número aleatório entre min e max.
 function randomBetween(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+// Atualiza o total de sorteios já realizados
+function updateQuantityDraw() {
+    const current = Number(quantityDraw.textContent.replace(/\D/g, ""))
+    const next = current + 1
+    quantityDraw.textContent = `${next}º resultado`
 }
 
 // Limpa os dados do formulário.
